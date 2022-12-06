@@ -51,7 +51,7 @@ public class Main {
                     traceObjectToZip) {
                 FileInputStream fis = new FileInputStream(traceToZip);
                 k += 1;
-                ZipEntry entry = new ZipEntry("save" + k + ".txt");
+                ZipEntry entry = new ZipEntry("save" + k + ".dat");
                 zout.putNextEntry(entry);
                 byte[] buffer = new byte[fis.available()];
                 fis.read(buffer);
