@@ -24,20 +24,20 @@ public class Main {
         listOfSavings.add(saveGame(trace + file2.getName(), levelTwo));
         listOfSavings.add(saveGame(trace + file3.getName(), levelFive));
         zipFiles("E://Games/saveGames/zipOutputGames.zip", listOfSavings);
-        for (File item :
-                dir.listFiles()) {
-            if (item.getName().equals(file1.getName()) || item.getName().equals(file2.getName()) || item.getName().equals(file3.getName())) {
-                item.deleteOnExit();
+        if (dir.listFiles() != null) {
+            for (File item :
+                    dir.listFiles()) {
+                if (item.getName().equals(file1.getName()) || item.getName().equals(file2.getName()) ||
+                        item.getName().equals(file3.getName()))
+                    item.deleteOnExit();
             }
-
         }
-
     }
 
     public static String saveGame(String trace, GameProgress gameProgress) {
         try (FileOutputStream fos = new FileOutputStream(trace, true);
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(gameProgress.toString());
+            oos.writeObject(gameProgress);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -46,22 +46,22 @@ public class Main {
 
     public static void zipFiles(String traceToArchive, List<String> traceObjectToZip) {
         int k = 0;
-        for (String traceToZip :
-                traceObjectToZip) {
-            try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(traceToArchive, true));
-                 FileInputStream fis = new FileInputStream(traceToZip)) {
-
+        try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream(traceToArchive, true))) {
+            for (String traceToZip :
+                    traceObjectToZip) {
+                FileInputStream fis = new FileInputStream(traceToZip);
                 k += 1;
-                ZipEntry entry = new ZipEntry(k + "save.txt");
+                ZipEntry entry = new ZipEntry("save" + k + ".txt");
                 zout.putNextEntry(entry);
                 byte[] buffer = new byte[fis.available()];
                 fis.read(buffer);
                 zout.write(buffer);
                 zout.closeEntry();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
             }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
+
     }
 }
 

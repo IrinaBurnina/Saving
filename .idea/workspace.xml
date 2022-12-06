@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d6e9b47-58c3-4eb0-9ff6-cafc97408feb" name="Changes" comment="">
+    <list default="true" id="0d6e9b47-58c3-4eb0-9ff6-cafc97408feb" name="Changes" comment="add main.java and gameProgress.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/saving/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saving/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,14 @@
       <option name="presentableId" value="Default" />
       <updated>1670189873376</updated>
     </task>
+    <task id="LOCAL-00001" summary="add main.java and gameProgress.java">
+      <created>1670347863204</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670347863204</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,12 +90,16 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add main.java and gameProgress.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="add main.java and gameProgress.java" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/saving/Main.java</url>
-          <line>25</line>
+          <line>24</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
