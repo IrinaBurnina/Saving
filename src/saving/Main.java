@@ -1,12 +1,10 @@
 package saving;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 public class Main {
@@ -30,9 +28,13 @@ public class Main {
                 if (item.getName().equals(file1.getName()) || item.getName().equals(file2.getName()) ||
                         item.getName().equals(file3.getName()))
                     item.deleteOnExit();
+
             }
         }
+        openZip("E://Games/saveGames/zipOutputGames.zip","E://Games/saveGames/" );
+        System.out.println(openProgress("E://Games/saveGames/"));
     }
+
 
     public static String saveGame(String trace, GameProgress gameProgress) {
         try (FileOutputStream fos = new FileOutputStream(trace, true);
@@ -57,11 +59,42 @@ public class Main {
                 fis.read(buffer);
                 zout.write(buffer);
                 zout.closeEntry();
+                fis.close();
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
+    }
+
+    public static void openZip(String traceToZip, String traceToDirectory) {
+        try (ZipInputStream zis = new ZipInputStream(new FileInputStream(traceToZip))) {
+            ZipEntry entry;
+            String name;
+            while ((entry = zis.getNextEntry()) != null) {
+                name = entry.getName();
+                FileOutputStream fouts = new FileOutputStream(traceToDirectory + name);
+                for (int c = zis.read(); c != -1; c = zis.read()) {
+                    fouts.write(c);
+                }
+                fouts.flush();
+                zis.closeEntry();
+                fouts.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static GameProgress openProgress(String traceToFile) {
+        GameProgress gameProgress = null;
+        try (FileInputStream fis = new FileInputStream(traceToFile+"save2.dat");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            gameProgress = (GameProgress) ois.readObject();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return gameProgress;
     }
 }
 
