@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d6e9b47-58c3-4eb0-9ff6-cafc97408feb" name="Changes" comment="add all zip files to main.java">
+    <list default="true" id="0d6e9b47-58c3-4eb0-9ff6-cafc97408feb" name="Changes" comment="add loading to main.java add close to zipF">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/saving/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/saving/Main.java" afterDir="false" />
     </list>
@@ -90,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670355843195</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add loading to main.java add close to zipF">
+      <created>1670615070138</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670615070138</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add main.java and gameProgress.java" />
     <MESSAGE value="add all zip files to main.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all zip files to main.java" />
+    <MESSAGE value="add loading to main.java add close to zipF" />
+    <option name="LAST_COMMIT_MESSAGE" value="add loading to main.java add close to zipF" />
   </component>
 </project>

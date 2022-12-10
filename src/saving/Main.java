@@ -23,18 +23,15 @@ public class Main {
         listOfSavings.add(saveGame(trace + file3.getName(), levelFive));
         zipFiles("E://Games/saveGames/zipOutputGames.zip", listOfSavings);
         if (dir.listFiles() != null) {
-            for (File item :
-                    dir.listFiles()) {
+            for (File item : dir.listFiles()) {
                 if (item.getName().equals(file1.getName()) || item.getName().equals(file2.getName()) ||
                         item.getName().equals(file3.getName()))
-                    item.deleteOnExit();
-
+                    item.delete();
             }
         }
-        openZip("E://Games/saveGames/zipOutputGames.zip","E://Games/saveGames/" );
+        openZip("E://Games/saveGames/zipOutputGames.zip", "E://Games/saveGames/");
         System.out.println(openProgress("E://Games/saveGames/"));
     }
-
 
     public static String saveGame(String trace, GameProgress gameProgress) {
         try (FileOutputStream fos = new FileOutputStream(trace, true);
@@ -88,7 +85,7 @@ public class Main {
 
     public static GameProgress openProgress(String traceToFile) {
         GameProgress gameProgress = null;
-        try (FileInputStream fis = new FileInputStream(traceToFile+"save2.dat");
+        try (FileInputStream fis = new FileInputStream(traceToFile + "save2.dat");
              ObjectInputStream ois = new ObjectInputStream(fis)) {
             gameProgress = (GameProgress) ois.readObject();
         } catch (Exception e) {
